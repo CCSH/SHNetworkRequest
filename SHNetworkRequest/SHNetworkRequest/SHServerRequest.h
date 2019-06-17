@@ -16,9 +16,16 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface SHServerRequest : NSObject
 
-+ (void)requestListWithName:(NSString *)name
-                        tag:(NSString *)tag
+#pragma mark 登录请求
++ (void)requestLoginWithTag:(NSString *)tag
+                   username:(NSString *)username
+                   password:(NSString *)password
                      result:(RequestBlock)result;
+
+#pragma mark 列表查询
++ (void)requestListWithTag:(NSString *)tag
+                      name:(NSString *)name
+                    result:(RequestBlock)result;
 
 @end
 

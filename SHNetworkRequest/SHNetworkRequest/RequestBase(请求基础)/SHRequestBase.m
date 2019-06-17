@@ -78,8 +78,10 @@ static NSInteger timeOut = 30;
                 }
             }
         }];
-    //添加队列
-    [netQueueDic setObject:task forKey:tag];
+    if (tag.length) {
+        //添加队列
+        [netQueueDic setObject:task forKey:tag];
+    }
 }
 
 #pragma mark POST
@@ -118,8 +120,11 @@ static NSInteger timeOut = 30;
                 }
             }
         }];
-    //添加队列
-    [netQueueDic setObject:task forKey:tag];
+
+    if (tag.length) {
+        //添加队列
+        [netQueueDic setObject:task forKey:tag];
+    }
 }
 
 #pragma mark FORM
@@ -171,8 +176,10 @@ static NSInteger timeOut = 30;
                 }
             }
         }];
-    //添加队列
-    [netQueueDic setObject:task forKey:tag];
+    if (tag.length) {
+        //添加队列
+        [netQueueDic setObject:task forKey:tag];
+    }
 }
 
 #pragma mark POST文件上传
@@ -219,8 +226,10 @@ static NSInteger timeOut = 30;
                 }
             }
         }];
-    //添加队列
-    [netQueueDic setObject:task forKey:tag];
+    if (tag.length) {
+        //添加队列
+        [netQueueDic setObject:task forKey:tag];
+    }
 }
 
 #pragma mark POST文件批量上传
@@ -270,8 +279,10 @@ static NSInteger timeOut = 30;
                 }
             }
         }];
-    //添加队列
-    [netQueueDic setObject:task forKey:tag];
+    if (tag.length) {
+        //添加队列
+        [netQueueDic setObject:task forKey:tag];
+    }
 }
 
 #pragma mark 文件下载
@@ -317,8 +328,10 @@ static NSInteger timeOut = 30;
         }];
     //启动
     [task resume];
-    //添加队列
-    [netQueueDic setObject:task forKey:tag];
+    if (tag.length) {
+        //添加队列
+        [netQueueDic setObject:task forKey:tag];
+    }
 }
 
 #pragma mark 获取请求队列

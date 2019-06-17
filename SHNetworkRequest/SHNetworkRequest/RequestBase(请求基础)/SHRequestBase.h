@@ -53,7 +53,6 @@ NS_ASSUME_NONNULL_BEGIN
                    success:(void (^)(id responseObj))success
                    failure:(void (^)(NSError *error))failure;
 
-
 /**
  FORM
 
@@ -68,7 +67,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (void)formRequestWithUrl:(NSString *)url
                      param:(id)param
-                     formParam:(id)formParam
+                 formParam:(id)formParam
                        tag:(NSString *)tag
                      retry:(NSInteger)retry
                   progress:(void (^)(NSProgress *progress))progress
@@ -99,7 +98,7 @@ NS_ASSUME_NONNULL_BEGIN
                   failure:(void (^)(NSError *error))failure;
 
 /**
- POST文件批量上传
+ POST文件上传(批量)
  
  @param url 地址
  @param param 参数
@@ -120,7 +119,6 @@ NS_ASSUME_NONNULL_BEGIN
                   progress:(void (^)(NSProgress *progress))progress
                    success:(void (^)(id responseObj))success
                    failure:(void (^)(NSError *error))failure;
-
 
 /**
  文件下载

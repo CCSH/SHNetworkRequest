@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "SHServerRequest.h"
 
 @interface ViewController ()
 
@@ -17,7 +18,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-}
+    [SHServerRequest requestListWithTag:nil
+                                   name:@"1234"
+                                 result:^(SHRequestBaseModel *_Nonnull baseModel, NSError *_Nonnull error){
 
+                                 }];
+}
 
 @end

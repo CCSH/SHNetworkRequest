@@ -14,29 +14,71 @@
 
 @implementation SHServerRequest
 
-+ (void)requestListWithName:(NSString *)name
-                        tag:(NSString *)tag
-                     result:(RequestBlock)result {
++ (void)requestListWithTag:(NSString *)tag
+                      name:(NSString *)name
+                    result:(RequestBlock)result {
+    //网址
     NSString *url = [NSString stringWithFormat:@"%@%@", kHostUrl, kInterface];
 
+    //数据处理
     NSMutableDictionary *param = [[NSMutableDictionary alloc] init];
     if (name) {
         [param setObject:name forKey:@"name"];
     }
 
-    return [SHRequestBase getRequestWithUrl:url
+    //请求
+    [SHRequestBase getRequestWithUrl:url
         param:param
         tag:tag
         retry:0
         progress:nil
-        success:^(id _Nonnull responseObj) {
+        success:^(id responseObj) {
 
             if (result) {
                 SHRequestBaseModel *model = [[SHRequestBaseModel alloc] init];
                 result(model, nil);
             }
         }
-        failure:^(NSError *_Nonnull error) {
+        failure:^(NSError *error) {
+
+            if (result) {
+                result(nil, error);
+            }
+
+        }];
+}
+
++ (void)requestLoginWithTag:(NSString *)tag
+                   username:(NSString *)username
+                   password:(NSString *)password
+                     result:(RequestBlock)result {
+    //网址
+    NSString *url = [NSString stringWithFormat:@"%@%@", kHostUrl, kLogin];
+
+    //数据处理
+    NSMutableDictionary *param = [[NSMutableDictionary alloc] init];
+    if (username) {
+        [param setObject:username forKey:@"username"];
+    }
+
+    if (password) {
+        [param setObject:password forKey:@"password"];
+    }
+
+    //请求
+    [SHRequestBase postRequestWithUrl:url
+        param:param
+        tag:tag
+        retry:0
+        progress:nil
+        success:^(id responseObj) {
+
+            if (result) {
+                SHRequestBaseModel *model = [[SHRequestBaseModel alloc] init];
+                result(model, nil);
+            }
+        }
+        failure:^(NSError *error) {
 
             if (result) {
                 result(nil, error);
