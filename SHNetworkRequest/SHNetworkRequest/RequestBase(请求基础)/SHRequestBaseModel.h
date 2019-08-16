@@ -12,7 +12,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 //回调
-typedef void (^RequestBlock)(SHRequestBaseModel *baseModel, NSError *error);
+typedef void (^RequestBlock)(SHRequestBaseModel *__nullable baseModel, NSError *__nullable error);
 
 /**
  网络请求model
